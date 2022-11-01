@@ -79,3 +79,5 @@ stages:
         notify: []
         strategy:
           retry: '0'
+strategy:
+  blocking: true
