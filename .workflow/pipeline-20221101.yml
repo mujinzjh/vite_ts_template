@@ -29,9 +29,7 @@ stages:
           - name: BUILD_ARTIFACT
             path:
               - ./dist
-        caches:
-          - ~/.npm
-          - ~/.yarn
+        caches: []
         notify: []
         strategy:
           retry: '0'
@@ -61,7 +59,7 @@ stages:
           - source: artifact
             name: output
             target: ~/gitee_go/deploy
-            artifactRepository: release
+            artifactRepository: default
             artifactName: output
             artifactVersion: latest
         script:
@@ -73,8 +71,7 @@ stages:
           - '# 如果你是php之类的无需制品包的制品方式，可以使用 git clone 或者 git pull 将源代码更新到服务器，再执行其他命令'
           - '# git clone ***@***.git'
           - echo 'Hello Gitee Go!'
-          - sudo -i
-          - mkdir -p /home/zjh/app/web
+          - sudo mkdir -p /home/zjh/app/web
           - ''
         notify: []
         strategy:
