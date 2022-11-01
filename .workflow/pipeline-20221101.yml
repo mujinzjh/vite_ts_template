@@ -54,7 +54,7 @@ stages:
         hostGroupID:
           ID: ubuntu
           hostID:
-            - 61527b9c-d860-4a62-8584-f3a0ba4da330
+            - 682e07dd-7601-4a29-8fee-4eaa02ae304d
         deployArtifact:
           - source: artifact
             name: output
