@@ -15,6 +15,13 @@ stages:
     executor:
       - mujinzjh
     steps:
+      - step: sc@opensca
+        name: open_sca
+        displayName: OpenSCA 开源组件检测
+        detectPath: vue_template
+        notify: []
+        strategy:
+          retry: '0'
       - step: build@nodejs
         name: build_nodejs
         displayName: 构建
@@ -33,14 +40,7 @@ stages:
         notify: []
         strategy:
           retry: '0'
-      - step: sc@opensca
-        name: open_sca
-        displayName: OpenSCA 开源组件检测
-        detectPath: ./
-        notify: []
-        strategy:
-          retry: '0'
-        dependsOn: build_nodejs
+        dependsOn: open_sca
   - name: stage-1ef7821b
     displayName: 部署
     strategy: naturally
