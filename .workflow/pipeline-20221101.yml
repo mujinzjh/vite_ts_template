@@ -64,7 +64,6 @@ stages:
             artifactVersion: latest
         script:
           - echo 'Hello Gitee Go!'
-          - sudo -i
           - whoami
           - mkdir -p /home/zjh/app/web
           - rm -rf /home/zjh/app/web/*
