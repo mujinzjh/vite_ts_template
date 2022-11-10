@@ -1,16 +1,34 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
+import useLocale from '../hooks/useLocale'
 defineProps<{ msg: string }>()
-
+const {
+  i18n: { t },
+  changeLocale,
+  currentLocale,
+} = useLocale()
+const change = (value: string) => {
+  changeLocale(value)
+}
 const count = ref(0)
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
-
+  <h1>{{t('ok')}}</h1>
+  <a
+    href="javascript:void(0)"
+    @click="change('zh-CN')"
+  >中文</a> --
+  <a
+    href="javascript:void(0)"
+    @click="change('en-US')"
+  >English</a>
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button
+      type="button"
+      @click="count++"
+    >count is {{ count }}</button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
@@ -19,13 +37,17 @@ const count = ref(0)
 
   <p>
     Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
+    <a
+      href="https://vuejs.org/guide/quick-start.html#local"
+      target="_blank"
+    >create-vue</a>, the official Vue + Vite starter
   </p>
   <p>
     Install
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
+    <a
+      href="https://github.com/johnsoncodehk/volar"
+      target="_blank"
+    >Volar</a>
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
